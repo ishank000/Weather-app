@@ -1,8 +1,7 @@
 # 🌦️ Minimal Weather App
 
 ## 🌐 Live Demo
-[Live Weather App](https://minimalwx.netlify.app/) *(Replace with actual Netlify link)*
-
+[Live Weather App](https://minimalwx.netlify.app/)
 ## 📄 Description
 A sleek, **Dieter Rams/Braun-inspired** weather application that provides real-time weather updates using the OpenWeather API. The design emphasizes clarity, simplicity, and usability, with smooth interactions and a dark mode option.
 
