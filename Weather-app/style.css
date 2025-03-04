@@ -1,0 +1,382 @@
+/* Simple color scheme */
+:root {
+  --primary-color: #222222;
+  --secondary-color: #e5e5e5;
+  --accent-color: #ff5500;
+  --text-color: #222222;
+  --bg-color: #ffffff;
+  --card-bg: #e0e0e0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Dark mode colors */
+.dark-mode {
+  --primary-color: #f5f5f5;
+  --secondary-color: #333333;
+  --text-color: #f5f5f5;
+  --bg-color: #222222;
+  --card-bg: #333333;
+  --shadow: 0 1px 3px rgba(255,255,255,0.1);
+}
+
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--secondary-color);
+  margin-bottom: 30px;
+}
+
+.app-title {
+  font-size: 2VW;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Toggle switches container */
+.toggle-container {
+  display: flex;
+  gap: 20px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Toggle switch styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--card-bg);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  border-radius: 0; /* Changed from border-radius: 50% to make the toggle circle square */
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--accent-color);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.toggle-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Search bar styling */
+.search-container {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg);
+  border-radius: 2px;
+  padding: 2px;
+  box-shadow: var(--shadow);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-color);
+  outline: none;
+}
+
+.search-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  opacity: 0.9;
+}
+
+.location-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+/* Main weather container */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Weather image */
+.weather-image {
+  background-color: var(--card-bg);
+  border-radius: 2px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Weather details card */
+.weather-details {
+  background-color: var(--card-bg);
+  border-radius: 2px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.city-name {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.weather-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#weather-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.current-temp {
+  font-size: 64px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Weather info grid */
+.weather-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Forecast section */
+.forecast-container {
+  margin-top: 30px;
+}
+
+.forecast-title {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.forecast-card {
+  background-color: var(--card-bg);
+  border-radius: 2px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.forecast-day {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.forecast-icon {
+  margin-bottom: 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forecast-icon img {
+  height: 100%;
+}
+
+.forecast-temp {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* Error message */
+.error-message {
+  color: var(--accent-color);
+  margin: 16px 0;
+  font-size: 14px;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Weather background images */
+.bg-clear {
+  background-image: url('clear.gif');
+}
+
+.bg-clouds {
+  background-image: url('clouds.gif');
+}
+
+.bg-rain {
+  background-image: url('Rain.gif');
+}
+
+.bg-snow {
+  background-image: url('Snow.gif');
+}
+
+.bg-thunderstorm {
+  background-image: url('thunder.gif');
+}
+
+.bg-mist {
+  background-image: url('mist.gif');
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    overflow-x: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .toggle-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .app-title {
+    font-size: 24px;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="app-title">Weather</div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="unit-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label" id="unit-label">°C</span>
+            </div>
+            <div class="toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Dark</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="city-input" class="search-input" placeholder="Enter city name">
+        <button class="location-button" id="location-button" onclick="getLocationWeather()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06z"/>
+            </svg>
+        </button>
+        <button class="search-button" onclick="getWeather()">Search</button>
+    </div>
+
+    <div id="error-message" class="error-message"></div>
+
+    <div id="weather-container" class="main-container hidden">
+        <div class="weather-image" id="weather-background">
+            <!-- Weather relevant image will be displayed here -->
+        </div>
+        <div class="weather-details">
+            <div>
+                <h2 id="city-name" class="city-name"></h2>
+                <div class="weather-icon-container">
+                    <img id="weather-icon" src="" alt="Weather icon">
+                </div>
+                <div id="temperature" class="current-temp"></div>
+            </div>
+            <div class="weather-info">
+                <div class="info-item">
+                    <span class="info-label">Description</span>
+                    <span class="info-value" id="description"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Humidity</span>
+                    <span class="info-value" id="humidity"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Wind</span>
+                    <span class="info-value" id="wind-speed"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Seasonal</span>
+                    <span class="info-value" id="seasonal-message"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="forecast-container" class="forecast-container hidden">
+        <h3 class="forecast-title">5-Day Forecast</h3>
+        <div id="forecast-days" class="forecast-grid">
+            <!-- Forecast data will be populated here -->
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
