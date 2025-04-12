@@ -163,7 +163,7 @@ function getWeather() {
 
   // OpenWeatherMap API Key
   const apiKey = '0c2467c08df3a77e1ba2b15c32ac2563';
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiUrl = `/.netlify/functions/weather?city=${city}`;
 
   fetch(apiUrl)
     .then(response => {
